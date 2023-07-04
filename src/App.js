@@ -6,11 +6,12 @@ import Plans from "./Pages/Plans/Plans.js";
 import Renew from "./Pages/Renew/Renew.js";
 import Claims from "./Pages/Claims/Claims.js";
 import About from "./Pages/About/About.js";
-import Footer from "./Pages/Footer/Footer.js";
+import Footer from "./Pages/Footer/Footer.js"; 
+import Error from "./Pages/Error/Error.js";
 const App = () => {
   return (
     <>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-[#F5F5F5]">
         <Navbar />
         <Routes>
           <Route path="/" index element={<Home />} />
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/renew" element={<Renew />} />
           <Route path="/claims" element={<Claims />} />
           <Route path="/about" element={<About />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </div>
