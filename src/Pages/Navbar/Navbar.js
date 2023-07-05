@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
-        <Link to="/home" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img src={logo} className="h-10 mr-3" alt="Logo" />
         </Link>
         <div className="lg:hidden">
