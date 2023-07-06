@@ -11,7 +11,7 @@ import Error from "./Pages/Error/Error.js";
 const App = () => {
   return (
     <>
-      <div className="min-h-screen flex flex-col bg-[#F5F5F5]">
+      <div className="min-h-screen flex flex-col bg-[#FBFCF8]">
         <Navbar />
         <Routes>
           <Route path="/" index element={<Home />} />

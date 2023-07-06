@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 
 const Stat = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -7,17 +7,13 @@ const Stat = () => {
   const [files, setFiles] = useState(0);
   const [places, setPlaces] = useState(0);
 
+  const statRef = useRef(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      const windowHeight =
-        document.documentElement.clientHeight || window.innerHeight;
-      const scrollHeight =
-        document.documentElement.scrollHeight || document.body.scrollHeight;
-
-      const scrolledToBottom = scrollTop + windowHeight >= scrollHeight;
-      setIsVisible(scrolledToBottom);
+      const rect = statRef.current.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight;
+      setIsVisible(isVisible);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,38 +26,22 @@ const Stat = () => {
       interval = setInterval(() => {
         setDownloads((prevDownloads) => {
           const newDownloads = prevDownloads + 10;
-          if (newDownloads >= 2700) {
-            clearInterval(interval);
-            return 2700;
-          }
-          return newDownloads;
+          return newDownloads >= 2700 ? 2700 : newDownloads;
         });
 
         setUsers((prevUsers) => {
-          const newUsers = prevUsers + 2000;
-          if (newUsers >= 1300) {
-            clearInterval(interval);
-            return 1300;
-          }
-          return newUsers;
+          const newUsers = prevUsers + 5;
+          return newUsers >= 1300 ? 1300 : newUsers;
         });
 
         setFiles((prevFiles) => {
-          const newFiles = prevFiles + 4;
-          if (newFiles >= 4) {
-            clearInterval(interval);
-            return 4;
-          }
-          return newFiles;
+          const newFiles = prevFiles + 1;
+          return newFiles >= 4 ? 4 : newFiles;
         });
 
         setPlaces((prevPlaces) => {
-          const newPlaces = prevPlaces + 90;
-          if (newPlaces >= 90) {
-            clearInterval(interval);
-            return 90;
-          }
-          return newPlaces;
+          const newPlaces = prevPlaces + 1;
+          return newPlaces >= 90 ? 90 : newPlaces;
         });
       }, 0);
     }
@@ -70,8 +50,8 @@ const Stat = () => {
   }, [isVisible]);
 
   return (
-    <div>
-      <section className="text-gray-600 body-font bg-gray-50">
+    <div ref={statRef}>
+      <section className="text-gray-600 body-font bg-gray-50 ">
         <div className="container px-5 py-14 mx-auto">
           <div className="flex flex-col text-center w-full mb-5">
             <h5 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-blue-600">
@@ -80,7 +60,7 @@ const Stat = () => {
           </div>
           <div className="flex flex-wrap -m-4 text-center">
             <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <div className="border-2 border-gray-200 bg-[#FFFFFF] px-4 py-6 rounded-lg">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -100,7 +80,7 @@ const Stat = () => {
               </div>
             </div>
             <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg bg-[#FFFFFF]">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -123,7 +103,7 @@ const Stat = () => {
               </div>
             </div>
             <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg bg-[#FFFFFF]">
                 <span className="text-indigo-500 w-12 h-11 mb-3 inline-block">
                   <svg
                     fill="currentColor"
@@ -142,11 +122,11 @@ const Stat = () => {
                 <h2 className="title-font font-medium text-3xl text-gray-900">
                   {files} Rating
                 </h2>
-                <p className="leading-relaxed">Based on 8050 User review</p>
+                <p className="leading-relaxed">Based on 8050 User reviews</p>
               </div>
             </div>
             <div className="p-4 md:w-1/4 sm:w-1/2 w-full">
-              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
+              <div className="border-2 border-gray-200 px-4 py-6 rounded-lg bg-[#FFFFFF]">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -162,7 +142,7 @@ const Stat = () => {
                   {places} %
                 </h2>
                 <p className="leading-relaxed">
-                  Cashless claims settled in 1 hrs
+                  Cashless claims settled in 1 hour
                 </p>
               </div>
             </div>

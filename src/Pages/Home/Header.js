@@ -21,7 +21,7 @@ const Header = () => {
   }, [images.length]);
   return (
     <div>
-      <section className="text-gray-600 body-font ">
+      <section className="text-gray-600 body-font bg-[#FFFFFF]">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center p-5">
             <div className="text-blue-700/95 mb-5">
@@ -48,7 +48,7 @@ const Header = () => {
                     <input
                       type="text"
                       id="first_name"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 light:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="John"
                       required=""
                     />
@@ -63,7 +63,7 @@ const Header = () => {
                     <input
                       type="tel"
                       id="phone"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 light:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 light:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder=" +91 1234567890"
                       pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                       required=""
