@@ -20,8 +20,8 @@ const Banner = () => {
             Our best Insurance Policy is just a click away!
           </p>
           <a
-            href="/"
-            className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
+            href="/plans"
+            className="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-purple-700 hover:text-white-800"
           >
             View Policy &gt;
           </a>
