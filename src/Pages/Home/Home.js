@@ -5,6 +5,8 @@ import Bcard from './Bcard';
 import Banner from './Banner';
 import Claimp from './Claimp';
 import Cim from './Cim';
+import Tsp from './Tsp'; 
+import Review from './Review';
 const Home = () => {
   return (
     <div >
@@ -13,7 +15,9 @@ const Home = () => {
       <Bcard /> 
       <Banner /> 
       <Claimp /> 
-      <Cim />
+      <Cim /> 
+      <Tsp /> 
+      <Review/>
     </div>
   );
 }
