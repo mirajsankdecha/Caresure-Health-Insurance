@@ -10,11 +10,9 @@ const Tsp = () => {
         <div className="font-bold my-1 text-4xl">
           Insurance Plans our Customers Highly Prefer
         </div>
-
         <div className="my-3">
           Our best Health Insurance Policies cater to your needs.
         </div>
-
         <div className="max-w-7xl">
           <div className="overflow-hidden bg-white m-4 shadow-lg flex flex-col md:flex-row ">
             <div className="h-49 w-48 md:w-1/3 overflow-hidden">
