@@ -7,6 +7,7 @@ import Claimp from './Claimp';
 import Cim from './Cim';
 import Tsp from './Tsp'; 
 import Review from './Review';
+import BenefitIsu from './BenefitIsu';
 const Home = () => {
   return (
     <div >
@@ -17,7 +18,8 @@ const Home = () => {
       <Claimp /> 
       <Cim /> 
       <Tsp /> 
-      <Review/>
+      <Review/> 
+      <BenefitIsu />
     </div>
   );
 }
