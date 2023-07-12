@@ -5,6 +5,16 @@ const BenefitIsu = () => {
     <div>
       <div className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
+          <div className="font-md text-blue-600 font-bold text-center my-3">
+            Benefits of Health Insurance
+          </div>
+          <div className="font-md text-4xl font-bold text-center my-3">
+            Know How Insurance Benefits You
+          </div>
+          <div className="font-md  font-medium text-center my-3">
+            The needs of the people can vary, so know about the different types
+            of insurance and stay protected during uncertainties.
+          </div>
           <div className="flex flex-wrap m-4 justify-center">
             <div className="p-4 md:w-[30]">
               <div className="h-[450px] border-2 bg-white border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
