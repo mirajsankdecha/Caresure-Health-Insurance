@@ -8,6 +8,7 @@ import Cim from './Cim';
 import Tsp from './Tsp'; 
 import Review from './Review';
 import BenefitIsu from './BenefitIsu';
+import Accordian from './Accordian';
 const Home = () => {
   return (
     <div >
@@ -19,7 +20,8 @@ const Home = () => {
       <Cim /> 
       <Tsp /> 
       <Review/> 
-      <BenefitIsu />
+      <BenefitIsu /> 
+      <Accordian />
     </div>
   );
 }

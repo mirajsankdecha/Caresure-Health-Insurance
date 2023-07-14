@@ -8,7 +8,7 @@ const Navbar = () => {
     <div>
       <nav className="relative px-4 py-4 flex justify-between items-center bg-white">
         <Link to="/" className="flex items-center">
-          <img src={logo} className="h-10 mr-3" alt="Logo" />
+          <img src={logo} className="h-[80px] mr-3" alt="Logo" />
         </Link>
         <div className="lg:hidden">
           <button className="navbar-burger flex items-center text-blue-600 p-3">

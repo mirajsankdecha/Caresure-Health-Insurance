@@ -4,7 +4,7 @@ const BenefitIsu = () => {
   return (
     <div>
       <div className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 pt-24 mx-auto">
           <div className="font-md text-blue-600 font-bold text-center my-3">
             Benefits of Health Insurance
           </div>

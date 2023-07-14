@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import Header from "./Header";
+import Stat from "./Stat";
+import Infocard from "./Infocard";
 
 const Plans = () => {
   return (
-    <div>Plans</div>
-  )
-}
+    <div>
+      <Header />
+      <Stat /> 
+      <Infocard />
+    </div>
+  );
+};
 
-export default Plans
+export default Plans;
