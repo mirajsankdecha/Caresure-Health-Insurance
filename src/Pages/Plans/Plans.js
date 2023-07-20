@@ -3,6 +3,7 @@ import Header from "./Header";
 import Stat from "./Stat";
 import Infocard from "./Infocard";
 import Hplan from "./Hplan";
+import OnlineBenefit from "./OnlineBenefit";
 
 const Plans = () => {
   return (
@@ -10,7 +11,8 @@ const Plans = () => {
       <Header />
       <Stat /> 
       <Infocard /> 
-      <Hplan />
+      <Hplan /> 
+      <OnlineBenefit />
     </div>
   );
 };
