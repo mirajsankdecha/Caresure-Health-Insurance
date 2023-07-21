@@ -76,7 +76,7 @@ const Hplan = () => {
                   className="z-10 absolute mt-2 w-48 bg-white divide-y divide-gray-100 rounded-lg shadow"
                 >
                   <ul
-                    className="py-2 text-sm text-gray-700"
+                    className="py-3 text-sm text-gray-700"
                     aria-labelledby="dropdown-button"
                   >
                     <li>
