@@ -17,8 +17,8 @@ const Plans = () => {
       <Infocard /> 
       <Hplan /> 
       <OnlineBenefit /> 
-      <WhatHI/> 
       <Info1 /> 
+      <WhatHI/> 
       <Info2 /> 
       <Accordion />
     </div>
