@@ -2,6 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Hplandata from "./Hplandata.json";
 import Header from "./Header";
+import QL from "./plansdata/QL";
+import Hightlight from "./plansdata/Hightlight";
+import Detaillist from "./plansdata/Detaillist";
 
 const PlanDetailPage = () => {
   const { id } = useParams();
@@ -19,7 +22,10 @@ const PlanDetailPage = () => {
 
   return (
     <div>
-      <Header />
+      <Header /> 
+      <QL /> 
+      <Hightlight /> 
+      <Detaillist />
     </div>
   );
 };
