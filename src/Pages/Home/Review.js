@@ -12,10 +12,10 @@ const Review = () => {
       <div className="font-md  font-medium text-center my-3">
         We find rewards through the words of our customers.
       </div>
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center border rounded-sm">
+      <div className="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center rounded-sm">
         <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
           <img
-            className="object-cover object-center rounded-[50%]"
+            className="object-cover object-center rounded-[50%] ms-[150px] w-[300px] h-[300px]"
             alt="hero"
             src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?w=1060&t=st=1688997806~exp=1688998406~hmac=daaa96048b54b94727b85ca169c5d319125a00695ed52a54eac55163132e0b0a"
           />

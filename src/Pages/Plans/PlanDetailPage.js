@@ -5,6 +5,10 @@ import Header from "./Header";
 import QL from "./plansdata/QL";
 import Hightlight from "./plansdata/Hightlight";
 import Detaillist from "./plansdata/Detaillist";
+import GetStarted from "./plansdata/GetStarted";
+import Banner from "./plansdata/Banner";
+import Review from "../Home/Review";
+import Accordion from "./Accordian";
 
 const PlanDetailPage = () => {
   const { id } = useParams();
@@ -25,7 +29,11 @@ const PlanDetailPage = () => {
       <Header /> 
       <QL /> 
       <Hightlight /> 
-      <Detaillist />
+      <Detaillist />  
+      <Review />
+      <Banner /> 
+      <GetStarted /> 
+      <Accordion />
     </div>
   );
 };

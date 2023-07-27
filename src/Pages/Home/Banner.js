@@ -8,8 +8,9 @@ const Banner = () => {
         style={{
           backgroundImage:
             'url("https://img.freepik.com/free-photo/healthcare-workers-prevent-virus-insurance-medicine-concept-smiling-attractive-female-doctor_1258-91720.jpg?w=1380&t=st=1688649240~exp=1688649840~hmac=1274e32afb4bd6e84c20585aba3583257d64baaab5f182a1efed59f5f8aefe44")',
-          backgroundSize: "80% 100%",
-          backgroundPosition: "center",
+          backgroundSize: "70% 120%",
+          backgroundPosition: "center top",
+          height: "400px",
         }}
       >
         <div className="md:w-1/2 pl-[250px]">

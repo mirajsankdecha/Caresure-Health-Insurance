@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const Claims = () => {
   return (
     <div>Claims</div>
-  )
-}
+  );
+};
 
-export default Claims
+export default Claims;
