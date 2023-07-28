@@ -1,9 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Form = () => {
   const [policyNumber, setPolicyNumber] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    "https://img.freepik.com/free-photo/front-view-beautiful-blonde-woman_23-2148471029.jpg?w=360&t=st=1690552524~exp=1690553124~hmac=3a6bbb56c03a814dcd239b191cfb2f97aa245dce5837f70b2df249477d84990f",
+    "https://img.freepik.com/free-photo/family-home_23-2148166876.jpg?w=360&t=st=1690552628~exp=1690553228~hmac=d8c8cf77695483972a612a82262ef51d6ddc09017689ebf82869c6995d83c277",
+    "https://img.freepik.com/free-photo/portrait-doctor_144627-39386.jpg?size=626&ext=jpg&ga=GA1.2.969823653.1689870495&semt=ais",
+    "https://img.freepik.com/free-photo/portrait-doctor_144627-39379.jpg?size=626&ext=jpg&ga=GA1.2.969823653.1689870495&semt=ais",
+    "https://img.freepik.com/free-vector/health-insurance-template-vector-poster_53876-111250.jpg?w=360&t=st=1690560649~exp=1690561249~hmac=08cb087baba232430a6a3a093e2594774075b44bfea903ad4527bf1a3c9dec57",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,15 +39,21 @@ const Form = () => {
     <div className="w-full">
       <div className="container mx-auto">
         <div className="flex justify-center my-12 shadow-2xl">
-          <div className="w-full xl:w-3/4 lg:w-11/12 flex">
-            <div
-              className="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
-              style={{
-                backgroundImage:
-                  'url("https://source.unsplash.com/Mv9hjnEUHR4/600x800")',
-              }}
-            />
-            <div className="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+          <div className="w-full xl:w-3/4 lg:w-11/12 flex bg-white">
+            <div className="w-full h-[700px] bg-white hidden lg:block lg:w-5/12 bg-cover rounded-l-lg">
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  className={`object-cover object-center rounded h-full ${
+                    index === currentImageIndex ? "block" : "hidden"
+                  }`}
+                  alt="hero"
+                  style={{ width: "100%", height: "100%" }}
+                  src={image}
+                />
+              ))}
+            </div>
+            <div className="w-full lg:w-7/12 bg-white p-5 mt-20 rounded-lg h-[620px] lg:rounded-l-none">
               <h3 className="pt-4 text-2xl text-center">
                 Health Insurance Renewal
               </h3>
