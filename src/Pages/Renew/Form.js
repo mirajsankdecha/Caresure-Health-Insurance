@@ -54,7 +54,7 @@ const Form = () => {
               ))}
             </div>
             <div className="w-full lg:w-7/12 bg-white p-5 mt-20 rounded-lg h-[620px] lg:rounded-l-none">
-              <h3 className="pt-4 text-2xl text-center">
+              <h3 className="pt-4 text-3xl font-semibold text-center">
                 Health Insurance Renewal
               </h3>
               <form
