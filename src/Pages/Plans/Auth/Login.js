@@ -1,5 +1,8 @@
+// Login.js
+
 import React, { useState } from "react";
 import { useAuth } from "./Auth";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Login = () => {
   const { login } = useAuth();
@@ -53,6 +56,13 @@ const Login = () => {
           >
             Sign In
           </button>
+          {/* Add a link to the RegisterForm page */}
+          <Link
+            to="/register" // This should match the path of the RegisterForm route
+            className="text-blue-500 hover:text-blue-700 font-bold"
+          >
+            Register
+          </Link>
         </div>
       </form>
     </div>

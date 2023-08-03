@@ -1,6 +1,9 @@
+// Hplan.js
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Hplandata from "./Hplandata.json";
+import { useAuth } from "./Auth/Auth"; // Import useAuth from your custom hook
 
 const Hplan = () => {
   const [selectedCategory, setSelectedCategory] = useState("All categories");
@@ -38,9 +41,13 @@ const Hplan = () => {
     }
   });
 
-  return (
+  // Fetch the user object from useAuth hook
+  const { user } = useAuth();
+
+  return ( 
     <div>
       <div className="flex flex-col items-center justify-center">
+        {/* Other parts of your component code... */}
         <div className="text-blue-600 font-bold my-5">ALL HEALTH PLANS</div>
         <div className="font-bold my-3 text-5xl">
           Best Health Insurance Plans to Secure Yourself
@@ -212,12 +219,22 @@ const Hplan = () => {
                     <p className="font-medium">{item.content3}</p>
                   </div>
                   <div className="flex items-center h-12">
-                    <Link
-                      to={"/plans/" + item.id} // Pass the id as part of the URL
-                      className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-orange-500 rounded-md hover:bg-orange-600 focus:ring-orange-300 focus:outline-none focus:ring h-10 w-32"
-                    >
-                      View Plan
-                    </Link>
+                    {/* Add conditional rendering for the "View Plan" button */}
+                    {user ? (
+                      <Link
+                        to={"/plans/" + item.id}
+                        className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-orange-500 rounded-md hover:bg-orange-600 focus:ring-orange-300 focus:outline-none focus:ring h-10 w-32"
+                      >
+                        View Plan
+                      </Link>
+                    ) : (
+                      <Link
+                        to="/login"
+                        className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:ring-blue-300 focus:outline-none focus:ring h-10 w-32"
+                      >
+                        Sign In to View Plan
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

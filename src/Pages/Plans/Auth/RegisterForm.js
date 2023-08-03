@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { useAuth } from "./Auth";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const { register } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = () => {
     register(email, password, username);
+    navigate("/"); // Navigate to the home page ("/") after successful registration
   };
 
   return (
