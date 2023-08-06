@@ -1,6 +1,5 @@
-// admin/components/ManagePlans/PlanForm.js
-
 import React, { useState } from "react";
+import { FiCheckSquare } from "react-icons/fi"; // Import icons
 
 const PlanForm = () => {
   const [title, setTitle] = useState("");
@@ -12,7 +11,7 @@ const PlanForm = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100 p-4 rounded">
       <h2 className="text-xl font-semibold mb-4">
         Add New Health Insurance Plan
       </h2>
@@ -26,7 +25,7 @@ const PlanForm = () => {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full border rounded py-2 px-3"
+            className="w-full border rounded py-2 px-3 focus:outline-none focus:ring focus:border-blue-500"
             required
           />
         </div>
@@ -39,15 +38,15 @@ const PlanForm = () => {
             id="category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full border rounded py-2 px-3"
+            className="w-full border rounded py-2 px-3 focus:outline-none focus:ring focus:border-blue-500"
             required
           />
         </div>
         <button
           type="submit"
-          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 flex items-center"
         >
-          Add Plan
+          <FiCheckSquare className="mr-2" /> Add Plan
         </button>
       </form>
     </div>

@@ -13,30 +13,46 @@ const ClaimList = () => {
   return (
     <div>
       <h2 className="text-xl font-semibold mb-4">List of Insurance Claims</h2>
-      <table className="min-w-full">
-        <thead>
-          <tr>
-            <th className="py-2">ID</th>
-            <th className="py-2">Name</th>
-            <th className="py-2">Status</th>
-            <th className="py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {claims.map((claim) => (
-            <tr key={claim.id}>
-              <td className="py-2">{claim.id}</td>
-              <td className="py-2">{claim.name}</td>
-              <td className="py-2">{claim.status}</td>
-              <td className="py-2">
-                {/* Add edit and delete buttons */}
-                <button className="text-blue-600 mr-2">Edit</button>
-                <button className="text-red-600">Delete</button>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full bg-white rounded-lg shadow overflow-hidden">
+          <thead className="bg-blue-800 text-white">
+            <tr>
+              <th className="py-3 px-4 text-left">ID</th>
+              <th className="py-3 px-4 text-left">Name</th>
+              <th className="py-3 px-4 text-left">Status</th>
+              <th className="py-3 px-4 text-left">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {claims.map((claim) => (
+              <tr key={claim.id} className="bg-gray-50">
+                <td className="py-3 px-4">{claim.id}</td>
+                <td className="py-3 px-4">{claim.name}</td>
+                <td className="py-3 px-4">
+                  <span
+                    className={`${
+                      claim.status === "Pending"
+                        ? "text-yellow-600"
+                        : "text-green-600"
+                    }`}
+                  >
+                    {claim.status}
+                  </span>
+                </td>
+                <td className="py-3 px-4 space-x-2">
+                  {/* Add edit and delete buttons */}
+                  <button className="text-blue-600 hover:underline">
+                    Edit
+                  </button>
+                  <button className="text-red-600 hover:underline">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

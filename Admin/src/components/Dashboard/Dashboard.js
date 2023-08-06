@@ -1,5 +1,5 @@
 import React from "react";
-import AdminSectionCard from "./AdminSectionCard";
+// import AdminSectionCard from "./AdminSectionCard";
 import TotalPremiumCard from "./TotalPremiumCard";
 import TotalCustomersCard from "./TotalCustomersCard";
 import TotalClaimsCard from "./TotalClaimsCard";
@@ -10,12 +10,10 @@ const Dashboard = () => {
   return (
     <div>
       <h1 className="text-3xl font-semibold mb-4">Admin Dashboard</h1>
-      {/* <AdminSectionCard/> */}
       <TotalPremiumCard />
       <TotalCustomersCard />
       <TotalClaimsCard />
       <TotalPlansCard />
-
       <Charts />
     </div>
   );

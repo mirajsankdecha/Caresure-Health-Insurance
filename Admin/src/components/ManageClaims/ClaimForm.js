@@ -24,7 +24,7 @@ const ClaimForm = () => {
             id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full border rounded py-2 px-3"
+            className="w-full border rounded py-2 px-3 focus:outline-none focus:border-blue-500"
             required
           />
         </div>
@@ -37,13 +37,13 @@ const ClaimForm = () => {
             id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full border rounded py-2 px-3"
+            className="w-full border rounded py-2 px-3 focus:outline-none focus:border-blue-500"
             required
           />
         </div>
         <button
           type="submit"
-          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 focus:outline-none"
         >
           Add Claim
         </button>
