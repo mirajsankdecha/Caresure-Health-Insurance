@@ -35,7 +35,7 @@ const Bcard = () => {
                     Free, expert telemedicine facility
                   </p>
                   <div className="flex items-center flex-wrap ">
-                    <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                    <button className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
                         className="w-4 h-4 ml-2"
@@ -49,7 +49,7 @@ const Bcard = () => {
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -69,7 +69,7 @@ const Bcard = () => {
                     COVID advisory & support
                   </p>
                   <div className="flex items-center flex-wrap ">
-                    <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                    <button className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
                         className="w-4 h-4 ml-2"
@@ -83,7 +83,7 @@ const Bcard = () => {
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -103,7 +103,7 @@ const Bcard = () => {
                     Blogs from our experts
                   </p>
                   <div className="flex items-center flex-wrap ">
-                    <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                    <button className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
                         className="w-4 h-4 ml-2"
@@ -117,7 +117,7 @@ const Bcard = () => {
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ const Bcard = () => {
                     Book your consultation online
                   </p>
                   <div className="flex items-center flex-wrap">
-                    <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                    <button className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
                         className="w-4 h-4 ml-2"
@@ -151,7 +151,7 @@ const Bcard = () => {
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const Bcard = () => {
                     Start your healthy lifestyle
                   </p>
                   <div className="flex items-center flex-wrap ">
-                    <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                    <button className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                       Learn More
                       <svg
                         className="w-4 h-4 ml-2"
@@ -185,7 +185,7 @@ const Bcard = () => {
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -27,10 +27,8 @@ const Tsp = () => {
                 Caresure Comprehensive Insurance Policy
               </div>
               <div className="text-gray-500 mt-2 text-md">
-                <a href="">
-                  Extensive healthcare protection for your family. Get maximum
-                  coverage at times of medical needs.
-                </a>
+                Extensive healthcare protection for your family. Get maximum
+                coverage at times of medical needs.
               </div>
               <button className="inline-flex items-center w-32 justify-center px-4 py-2 mt-4 text-sm font-medium text-white bg-orange-500 rounded-md hover:bg-orange-500 h-10 ">
                 View Policy
@@ -43,11 +41,9 @@ const Tsp = () => {
                 Caresure Health Premier Insurance Policy
               </div>
               <div className="text-gray-500 mt-2 text-md">
-                <a href="">
-                  Cherish your 50's without worrying about your medical
-                  expenses. This policy's wide coverage ensures financial
-                  assistance to you and your family.
-                </a>
+                Cherish your 50's without worrying about your medical expenses.
+                This policy's wide coverage ensures financial assistance to you
+                and your family.
               </div>
               <button className="inline-flex items-center w-32 justify-center px-4 py-2 mt-4 text-sm font-medium text-white bg-orange-500 rounded-md hover:bg-orange-500 h-10 ">
                 View Policy
@@ -74,10 +70,8 @@ const Tsp = () => {
                 Caresure Health Assure Insurance Policy
               </div>
               <div className="text-gray-500 mt-2 text-md">
-                <a href="">
-                  Affordable health policy with vast benefits. Cover your entire
-                  family under a single roof.
-                </a>
+                Affordable health policy with vast benefits. Cover your entire
+                family under a single roof.
               </div>
               <button className="inline-flex items-center w-32 justify-center px-4 py-2 mt-4 text-sm font-medium text-white bg-orange-500 rounded-md hover:bg-orange-500 h-10 ">
                 View Policy
