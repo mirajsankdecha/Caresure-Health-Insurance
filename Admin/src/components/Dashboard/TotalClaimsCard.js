@@ -7,7 +7,7 @@ const TotalClaimsCard = () => {
 
   return (
     <AdminSectionCard title="Total Claims Amount">
-      <p className="text-lg font-semibold">${totalClaimsAmount}</p>
+      <p className="text-lg font-semibold">₹{totalClaimsAmount}</p>
     </AdminSectionCard>
   );
 };

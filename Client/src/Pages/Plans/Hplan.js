@@ -1,6 +1,4 @@
-// Hplan.js
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hplandata from "./Hplandata.json";
 import { useAuth } from "./Auth/Auth"; // Import useAuth from your custom hook
@@ -9,6 +7,7 @@ const Hplan = () => {
   const [selectedCategory, setSelectedCategory] = useState("All categories");
   const [searchQuery, setSearchQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [filteredPlans, setFilteredPlans] = useState([]);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -23,36 +22,40 @@ const Hplan = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const filteredData = Hplandata.filter((item) => {
-    const titleMatches = item.title
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    const contentMatches =
-      item.content1.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.content2.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.content3.toLowerCase().includes(searchQuery.toLowerCase());
+  useEffect(() => {
+    const newFilteredPlans = Hplandata.filter((item) => {
+      const titleMatches = item.title
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase());
+      const contentMatches =
+        item.content1.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.content2.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.content3.toLowerCase().includes(searchQuery.toLowerCase());
 
-    if (selectedCategory === "All categories") {
-      return titleMatches || contentMatches; // Change here to avoid duplicates
-    } else {
-      return (
-        (titleMatches || contentMatches) && item.category === selectedCategory
-      );
-    }
-  });
+      if (selectedCategory === "All categories") {
+        return titleMatches || contentMatches;
+      } else {
+        return (
+          (titleMatches || contentMatches) && item.category === selectedCategory
+        );
+      }
+    });
+
+    setFilteredPlans(newFilteredPlans);
+  }, [searchQuery, selectedCategory]);
 
   // Fetch the user object from useAuth hook
   const { user } = useAuth();
 
-  return ( 
+  return (
     <div>
       <div className="flex flex-col items-center justify-center">
-        {/* Other parts of your component code... */}
         <div className="text-blue-600 font-bold my-5">ALL HEALTH PLANS</div>
         <div className="font-bold my-3 text-5xl">
           Best Health Insurance Plans to Secure Yourself
         </div>
         <form onSubmit={(e) => e.preventDefault()}>
+          {/* ... (your search and filter dropdown code) */}
           <div className="flex items-center justify-center w-full my-5">
             <div className="relative flex-shrink-0">
               <button
@@ -185,10 +188,10 @@ const Hplan = () => {
           </div>
         </form>
 
-        {filteredData.length === 0 ? (
+        {filteredPlans.length === 0 ? (
           <div className="text-red-600 font-bold">No plans found.</div>
         ) : (
-          filteredData.map((item) => (
+          filteredPlans.map((item) => (
             <div key={item.id} className="max-w-7xl">
               <div className="overflow-hidden bg-white m-4 shadow-lg flex flex-col md:flex-row">
                 <div className="w-48 h-48 md:w-1/3 md:h-auto">

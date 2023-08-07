@@ -3,9 +3,9 @@ import {
   FaUser,
   FaPhone,
   FaBirthdayCake,
-  FaAddressCard,
   FaIdCard,
   FaArrowRight,
+  FaAddressCard,
 } from "react-icons/fa";
 
 const PlanPurchase = ({ plans }) => {
@@ -16,9 +16,13 @@ const PlanPurchase = ({ plans }) => {
     bloodGroup: "",
     address: "",
     adharCard: null,
-    selectedPlan: "",
-    selectedYear: "",
+    selectedPlan: null,
+    selectedYear: null,
     selectedSumInsured: "",
+    username: "",
+    emailAddress: "",
+    password: "",
+    passwordConfirmation: "",
   });
 
   const bloodGroups = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
@@ -40,7 +44,7 @@ const PlanPurchase = ({ plans }) => {
     setFormData((prevData) => ({
       ...prevData,
       selectedPlan,
-      selectedYear: "",
+      selectedYear: null,
       selectedSumInsured: "",
     }));
   };
@@ -67,10 +71,13 @@ const PlanPurchase = ({ plans }) => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-      <div className="bg-white rounded-lg p-6 shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-semibold mb-4">Plan Purchase</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <section className="min-h-screen flex justify-center items-center bg-gradient-to-r from-blue-300 to-indigo-200">
+      <div className="max-w-4xl p-6 bg-white rounded-md shadow-md">
+        <h1 className="text-2xl font-bold text-gray-700 mb-4">Plan Purchase</h1>
+        <form
+          onSubmit={handleSubmit}
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2"
+        >
           <div>
             <label htmlFor="name" className="block text-gray-600 mb-1">
               <FaUser className="inline-block mr-2" /> Name
@@ -97,6 +104,7 @@ const PlanPurchase = ({ plans }) => {
               className="block w-full border rounded p-2"
             />
           </div>
+          {/* Other form fields... */}
           <div>
             <label htmlFor="age" className="block text-gray-600 mb-1">
               <FaBirthdayCake className="inline-block mr-2" /> Age
@@ -220,15 +228,17 @@ const PlanPurchase = ({ plans }) => {
               </select>
             </div>
           )}
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-          >
-            Submit
-          </button>
+          <div className="col-span-2">
+            <button
+              type="submit"
+              className="w-full py-2 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600"
+            >
+              <FaArrowRight className="inline-block mr-2" /> Save
+            </button>
+          </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -3,7 +3,7 @@ import AdminSectionCard from "./AdminSectionCard";
 
 const TotalPlansCard = () => {
   // Calculate total number of plans (example)
-  const totalPlans = 10;
+  const totalPlans = 20;
 
   return (
     <AdminSectionCard title="Total Plans">

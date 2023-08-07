@@ -9,7 +9,7 @@ import Banner from "./plansdata/Banner";
 import Review from "../Home/Review";
 import Accordion from "./Accordian";
 import InsurancePlan from "./plansdata/InsurancePlan";
-import InsurancePlanData from "./plansdata/InsurancePlanData.json"; // Import the JSON data
+import InsurancePlanData from "./plansdata/InsurancePlanData.json";
 import GeneralTerms from "./plansdata/GeneralTerms";
 import PlanPurchase from "./plansdata/PlanPurchase";
 

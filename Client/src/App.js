@@ -13,8 +13,8 @@ import Footer from "./Pages/Footer/Footer";
 import Error from "./Pages/Error/Error";
 import { AuthProvider } from "./Pages/Plans/Auth/Auth";
 import Logout from "./Pages/Plans/Auth/Logout";
-import RegisterForm from "./Pages/Plans/Auth/RegisterForm"; // Add the RegisterForm component
-import Login from "./Pages/Plans/Auth/Login"; // Add the Login component
+import RegisterForm from "./Pages/Plans/Auth/RegisterForm";
+import Login from "./Pages/Plans/Auth/Login";
 
 const App = () => {
   return (
@@ -29,10 +29,8 @@ const App = () => {
           <Route path="/claims" element={<Claims />} />
           <Route path="/about" element={<About />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<RegisterForm />} />{" "}
-          {/* Add the Register route */}
-          <Route path="/login" element={<Login />} />{" "}
-          {/* Add the Login route */}
+          <Route path="/register" element={<RegisterForm />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

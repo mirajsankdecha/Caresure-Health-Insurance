@@ -11,7 +11,7 @@ const Charts = () => {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
         datasets: [
           {
-            label: "Premium Amount ($)",
+            label: "Premium Amount (₹)",
             data: [10000, 15000, 12000, 18000, 20000, 25000],
             borderColor: "rgb(75, 192, 192)",
             fill: true,

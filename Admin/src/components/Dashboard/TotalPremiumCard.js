@@ -7,7 +7,7 @@ const TotalPremiumCard = () => {
 
   return (
     <AdminSectionCard title="Total Premium Amount">
-      <p className="text-lg font-semibold">${totalPremium}</p>
+      <p className="text-lg font-semibold">₹{totalPremium}</p>
     </AdminSectionCard>
   );
 };
