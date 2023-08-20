@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
+const planRoutes = require("./routes/planRoutes");
 
 const app = express();
 const port = 5000;
@@ -20,6 +21,7 @@ mongoose.connect(
 
 // Routes
 app.use("/users", userRoutes);
+app.use("/plans", planRoutes);
 
 // Start the server
 app.listen(port, () => {
