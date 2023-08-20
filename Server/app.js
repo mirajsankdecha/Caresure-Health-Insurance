@@ -4,14 +4,14 @@ const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 // Middleware to parse JSON data
 app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://mirajsankdecha:Miraj123@mongo.ks9wvwp.mongodb.net/?retryWrites=true&w=majority",
+  "mongodb+srv://mirajsankdecha:Miraj123@mongo.ks9wvwp.mongodb.net/insurance?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

@@ -2,7 +2,6 @@ const Joi = require("joi");
 
 exports.createUserValidator = (req, res, next) => {
   const userSchema = Joi.object({
-    id: Joi.number().required(),
     email: Joi.string().email().required(),
     password: Joi.string().required(),
     username: Joi.string().required(),
