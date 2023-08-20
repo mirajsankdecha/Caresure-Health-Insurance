@@ -1,38 +1,17 @@
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios
-// import { useAuth } from "./Auth";
+import { useAuth } from "./Auth";
 import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
-  // const { register } = useAuth();
+  const { register } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = async () => {
-    try {
-      const response = await axios.post("/users/create", {
-        email: email,
-        password: password,
-        username: username,
-      });
-
-      // Assuming your server returns a success message upon successful registration
-      if (response.data.message === "Registration successful") {
-        // Optionally, you can call your login function here
-        // to automatically log in the user after registration.
-        // For example: login(email, password);
-
-        // Navigate to the home page ("/") after successful registration
-        navigate("/");
-      } else {
-        // Handle registration failure (e.g., display an error message)
-      }
-    } catch (error) {
-      // Handle network errors or server errors here
-      console.error("Registration failed:", error);
-    }
+  const handleRegister = () => {
+    register(email, password, username);
+    navigate("/"); // Navigate to the home page ("/") after successful registration
   };
 
   return (

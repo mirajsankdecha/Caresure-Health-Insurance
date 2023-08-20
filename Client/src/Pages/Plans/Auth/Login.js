@@ -1,36 +1,16 @@
+// Login.js
+
 import React, { useState } from "react";
-import axios from "axios";
 import { useAuth } from "./Auth";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Login = () => {
   const { login } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      // Send a POST request to your server for authentication
-      const response = await axios.post("/users/login", {
-        username,
-        password,
-      });
-
-      // Assuming your server responds with a user object on successful login
-      const user = response.data;
-
-      // Call the login function with the user object (if provided by your Auth context)
-      login(user);
-
-      // Redirect or perform any other action upon successful login
-      // For example, you can use the useHistory hook from react-router-dom to navigate to another page:
-      // import { useHistory } from "react-router-dom";
-      // const history = useHistory();
-      // history.push("/dashboard");
-    } catch (error) {
-      // Handle authentication failure (e.g., display an error message)
-      console.error("Login failed:", error);
-    }
+  const handleLogin = () => {
+    login(username, password);
   };
 
   return (

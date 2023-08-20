@@ -1,16 +1,17 @@
 {
   "users": [
     {
-      "email": "miraj@gmail.com",
-      "password": "123",
-      "username": "miraj",
-      "firstName": "miraj",
-      "lastName": "sankdecha",
-      "age": 20,
+      "id": 1,
+      "email": "user1@example.com",
+      "password": "password1",
+      "username": "user1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 28,
       "gender": "Male",
-      "address": "Home",
-      "city": "Rajkot",
-      "country": "India"
+      "address": "123 Main St",
+      "city": "New York",
+      "country": "USA"
     },
     {
       "id": 2,
