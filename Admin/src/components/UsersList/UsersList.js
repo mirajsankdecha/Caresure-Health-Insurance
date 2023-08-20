@@ -1,22 +1,29 @@
-// admin/UserList/UserList.js
-
-import React, { useState } from "react";
-
-const usersData = [
-  { id: 1, username: "admin", name: "Admin User" },
-  { id: 2, username: "user1", name: "Regular User 1" },
-  { id: 3, username: "user2", name: "Regular User 2" },
-  // Add more users as needed
-];
+import React, { useState, useEffect } from "react";
+import axios from "axios"; // Import Axios for making HTTP requests
 
 const UserList = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [users, setUsers] = useState([]); // Initialize users as an empty array
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  const filteredUsers = usersData.filter((user) => {
+  useEffect(() => {
+    // Make an API request when the component mounts or when searchQuery changes
+    axios
+      .get(
+        "/mongodb+srv://mirajsankdecha:Miraj123@mongo.ks9wvwp.mongodb.net/insurance?retryWrites=true&w=majority/users/getAll"
+      ) // Replace with your actual API endpoint
+      .then((response) => {
+        setUsers(response.data); // Update the state with the fetched user data
+      })
+      .catch((error) => {
+        console.error("Error fetching user data: ", error);
+      });
+  }, [searchQuery]); // Include searchQuery in the dependency array
+
+  const filteredUsers = users.filter((user) => {
     return user.username.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
