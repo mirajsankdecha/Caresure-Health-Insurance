@@ -45,7 +45,7 @@ const RegisterForm = () => {
         >
           Register
         </button>
-      </div>
+      </div> 
     </div>
   );
 };

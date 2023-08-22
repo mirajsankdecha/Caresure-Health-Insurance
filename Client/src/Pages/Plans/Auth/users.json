@@ -1,43 +1,26 @@
-{
-  "users": [
-    {
-      "id": 1,
-      "email": "user1@example.com",
-      "password": "password1",
-      "username": "user1",
-      "firstName": "John",
-      "lastName": "Doe",
-      "age": 28,
-      "gender": "Male",
-      "address": "123 Main St",
-      "city": "New York",
-      "country": "USA"
-    },
-    {
-      "id": 2,
-      "email": "user2@example.com",
-      "password": "password2",
-      "username": "user2",
-      "firstName": "Jane",
-      "lastName": "Smith",
-      "age": 32,
-      "gender": "Female",
-      "address": "456 Oak Ave",
-      "city": "Los Angeles",
-      "country": "USA"
-    },
-    {
-      "id": 3,
-      "email": "user3@example.com",
-      "password": "password3",
-      "username": "user3",
-      "firstName": "Michael",
-      "lastName": "Johnson",
-      "age": 24,
-      "gender": "Male",
-      "address": "789 Elm Rd",
-      "city": "Chicago",
-      "country": "USA"
-    }
-  ]
-}
+[
+  {
+    "email": "mirajsankdecha@gmail.com",
+    "password": "123",
+    "username": "mirajsankdecha",
+    "firstName": "Miraj",
+    "lastName": "Sankdecha",
+    "age": 20,
+    "gender": "Male",
+    "address": "Mavdi Chokdi",
+    "city": "Rajkot",
+    "country": "India"
+  },
+  {
+    "email": "satyam@gmail.com",
+    "password": "123",
+    "username": "satyamraval",
+    "firstName": "Satyam",
+    "lastName": "Raval",
+    "age": 20,
+    "gender": "Male",
+    "address": "KKV Hall",
+    "city": "Rajkot",
+    "country": "India"
+  }
+]
