@@ -4,21 +4,19 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 const planRoutes = require("./routes/planRoutes");
+require("dotenv").config(); // Load environment variables from .env
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000; // Use PORT from .env or default to 5000
 app.use(cors());
 // Middleware to parse JSON data
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect(
-  "mongodb+srv://mirajsankdecha:Miraj123@mongo.ks9wvwp.mongodb.net/insurance?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+// Connect to MongoDB using the MONGO_URI from .env
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Routes
 app.use("/users", userRoutes);
