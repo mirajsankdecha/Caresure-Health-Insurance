@@ -31,7 +31,7 @@ const UserList = () => {
       .then(() => {
         // After deletion, you can fetch the updated user list if needed
         const updatedUsers = users.filter((user) => user._id !== userId);
-        setUsers(updatedUsers);
+        setUsers(updatedUsers);  
       })
       .catch((error) => {
         console.error("Error deleting user: ", error);

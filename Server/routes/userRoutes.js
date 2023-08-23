@@ -14,7 +14,7 @@ router.get("/:id", userController.getUserById);
 router.delete("/:id", userController.deleteUserById);
 router.put(
   "/:id",
-  userValidator.createUserValidator,
+
   userController.updateUserById
 );
 
