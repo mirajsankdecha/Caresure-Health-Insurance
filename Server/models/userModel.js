@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: false,
+    unique: true, // You can set this to true if you want unique emails
   },
   password: {
     type: String,
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: false,
+    unique: false, // You can set this to true if you want unique usernames
   },
   firstName: {
     type: String,
