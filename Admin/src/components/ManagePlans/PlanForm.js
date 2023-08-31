@@ -1,54 +1,102 @@
-import React, { useState } from "react";
-import { FiCheckSquare } from "react-icons/fi"; // Import icons
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const PlanForm = () => {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
+const PlanForm = ({ planId, onClose }) => {
+  const [plan, setPlan] = useState({ title: "", description: "" });
+
+  useEffect(() => {
+    if (planId) {
+      // Fetch the plan data if planId is provided (for editing)
+      axios
+        .get(`http://localhost:5000/plans/${planId}`)
+        .then((response) => {
+          setPlan(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching plan:", error);
+        });
+    }
+  }, [planId]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setPlan({
+      ...plan,
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission, API call, etc.
+
+    if (planId) {
+      // Update existing plan
+      axios
+        .put(`http://localhost:5000/plans/${planId}`, plan)
+        .then(() => {
+          onClose();
+        })
+        .catch((error) => {
+          console.error("Error updating plan:", error);
+        });
+    } else {
+      // Add new plan
+      axios
+        .post("http://localhost:5000/plans/create", plan)
+        .then(() => {
+          onClose();
+        })
+        .catch((error) => {
+          console.error("Error adding plan:", error);
+        });
+    }
   };
 
   return (
-    <div className="bg-gray-100 p-4 rounded">
-      <h2 className="text-xl font-semibold mb-4">
-        Add New Health Insurance Plan
-      </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="title" className="block font-semibold mb-1">
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="w-full border rounded py-2 px-3 focus:outline-none focus:ring focus:border-blue-500"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="category" className="block font-semibold mb-1">
-            Category
-          </label>
-          <input
-            type="text"
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full border rounded py-2 px-3 focus:outline-none focus:ring focus:border-blue-500"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 flex items-center"
-        >
-          <FiCheckSquare className="mr-2" /> Add Plan
-        </button>
-      </form>
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div className="bg-white w-1/2 p-6 rounded-lg shadow-md">
+        <h2 className="text-2xl font-semibold mb-4">
+          {planId ? "Edit Plan" : "Add Plan"}
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-600">Title:</label>
+            <input
+              type="text"
+              name="title"
+              value={plan.title}
+              onChange={handleInputChange}
+              className="w-full py-2 px-3 border rounded-lg"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-600">Description:</label>
+            <textarea
+              name="description"
+              value={plan.description}
+              onChange={handleInputChange}
+              className="w-full py-2 px-3 border rounded-lg"
+              rows="4"
+            ></textarea>
+          </div>
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg mr-2"
+            >
+              {planId ? "Update" : "Add"}
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="bg-gray-300 hover:bg-gray-400 text-gray-600 font-semibold py-2 px-4 rounded-lg"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
