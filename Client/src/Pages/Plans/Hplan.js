@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Hplandata from "./Hplandata.json";
+import axios from "axios"; // Import Axios
 import { useAuth } from "./Auth/Auth"; // Import useAuth from your custom hook
+import Hplandata from "./Hplandata.json";
 
 const Hplan = () => {
   const [selectedCategory, setSelectedCategory] = useState("All categories");
   const [searchQuery, setSearchQuery] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [filteredPlans, setFilteredPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleCategorySelect = (category) => {
     setSelectedCategory(category);
@@ -23,26 +25,20 @@ const Hplan = () => {
   };
 
   useEffect(() => {
-    const newFilteredPlans = Hplandata.filter((item) => {
-      const titleMatches = item.title
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
-      const contentMatches =
-        item.content1.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.content2.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.content3.toLowerCase().includes(searchQuery.toLowerCase());
-
-      if (selectedCategory === "All categories") {
-        return titleMatches || contentMatches;
-      } else {
-        return (
-          (titleMatches || contentMatches) && item.category === selectedCategory
-        );
-      }
-    });
-
-    setFilteredPlans(newFilteredPlans);
-  }, [searchQuery, selectedCategory]);
+    // Fetch data from your Express API
+    axios
+      .get("http://localhost:5000/plans/getAll")
+      .then((response) => {
+        // Process the data and set it in your state
+        const plansData = response.data;
+        setFilteredPlans(plansData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
 
   // Fetch the user object from useAuth hook
   const { user } = useAuth();
@@ -188,7 +184,10 @@ const Hplan = () => {
           </div>
         </form>
 
-        {filteredPlans.length === 0 ? (
+        {loading ? (
+          <div>Loading...</div>
+        ) : // Render your data here
+        filteredPlans.length === 0 ? (
           <div className="text-red-600 font-bold">No plans found.</div>
         ) : (
           filteredPlans.map((item) => (

@@ -26,17 +26,17 @@ const ManagePlans = () => {
   }, [searchTerm, plans]);
 
   const filterPlans = () => {
-    const filtered = plans.filter((plan) => {
-      const title = plan.title || ""; // Use an empty string if title is undefined
-      const description = plan.description || ""; // Use an empty string if description is undefined
+  const filtered = plans.filter((plan) => {
+    const title = plan.title || ""; // Use an empty string if title is undefined
+    const description = plan.description || ""; // Use an empty string if description is undefined
 
-      return (
-        title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    });
-    setFilteredPlans(filtered);
-  };
+    return (
+      title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
+  setFilteredPlans(filtered);
+};
 
   const handleAddClick = () => {
     setIsAddMode(true);
