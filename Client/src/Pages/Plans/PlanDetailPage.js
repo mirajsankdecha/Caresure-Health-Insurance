@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 import QL from "./plansdata/QL";
@@ -9,20 +9,42 @@ import Banner from "./plansdata/Banner";
 import Review from "../Home/Review";
 import Accordion from "./Accordian";
 import InsurancePlan from "./plansdata/InsurancePlan";
-import InsurancePlanData from "./plansdata/InsurancePlanData.json";
 import GeneralTerms from "./plansdata/GeneralTerms";
 import PlanPurchase from "./plansdata/PlanPurchase";
+import axios from "axios";
 
 const PlanDetailPage = () => {
-  const { id } = useParams();
-  const planId = parseInt(id);
+  const { _id } = useParams();
+  const planId = _id; // Use the plan ID from the URL parameter
+  const [plan, setPlan] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const plan = InsurancePlanData.find((item) => item.id === planId);
+  useEffect(() => {
+    // Fetch detailed plan data from your Express API based on the plan ID
+    axios
+      .get(`http://localhost:5000/plans/${planId}`)
+      .then((response) => {
+        // Process the data and set it in your state
+        const planData = response.data;
+        setPlan(planData);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, [planId]);
+
+  if (loading) {
+    // You can add a loading spinner or message here while the data is being fetched
+    return <div>Loading...</div>;
+  }
 
   if (!plan) {
     return <div>Plan not found</div>;
   }
 
+  // Render the detailed plan information here
   return (
     <div>
       <Header />

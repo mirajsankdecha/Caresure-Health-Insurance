@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios"; // Import Axios
 import { useAuth } from "./Auth/Auth"; // Import useAuth from your custom hook
-import Hplandata from "./Hplandata.json";
 
 const Hplan = () => {
   const [selectedCategory, setSelectedCategory] = useState("All categories");
@@ -224,7 +223,7 @@ const Hplan = () => {
                     {/* Add conditional rendering for the "View Plan" button */}
                     {user ? (
                       <Link
-                        to={"/plans/" + item.id}
+                        to={`/plans/${item._id}`}
                         className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-orange-500 rounded-md hover:bg-orange-600 focus:ring-orange-300 focus:outline-none focus:ring h-10 w-32"
                       >
                         View Plan

@@ -1,7 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const InsurancePlan = ({ planName, premiums }) => {
+  if (!planName || !premiums) {
+    // Handle the case where planName or premiums are not defined
+    return <div>Plan information is missing.</div>;
+  }
+
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
       <h2 className="text-2xl font-semibold mb-4">Insurance Plan</h2>
@@ -52,18 +56,6 @@ const InsurancePlan = ({ planName, premiums }) => {
       </div>
     </div>
   );
-};
-
-InsurancePlan.propTypes = {
-  planName: PropTypes.string.isRequired,
-  premiums: PropTypes.arrayOf(
-    PropTypes.shape({
-      year: PropTypes.number.isRequired,
-      sumInsured: PropTypes.number.isRequired,
-      premiumWithoutTax: PropTypes.number.isRequired,
-      premiumWithTax: PropTypes.number.isRequired,
-    })
-  ).isRequired,
 };
 
 export default InsurancePlan;
