@@ -30,18 +30,20 @@ const Hplan = () => {
       .then((response) => {
         // Process the data and set it in your state
         const plansData = response.data;
-        setFilteredPlans(plansData);
+        const filteredPlans = plansData.filter((plan) =>
+          plan.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setFilteredPlans(filteredPlans);
         setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
-  }, []);
+  }, [searchQuery]); // Include searchQuery as a dependency
 
   // Fetch the user object from useAuth hook
   const { user } = useAuth();
-
   return (
     <div>
       <div className="flex flex-col items-center justify-center">
