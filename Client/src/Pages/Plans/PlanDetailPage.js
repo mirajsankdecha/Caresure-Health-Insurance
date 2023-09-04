@@ -10,7 +10,6 @@ import Review from "../Home/Review";
 import Accordion from "./Accordian";
 import InsurancePlan from "./plansdata/InsurancePlan";
 import GeneralTerms from "./plansdata/GeneralTerms";
-import PlanPurchase from "./plansdata/PlanPurchase";
 import axios from "axios";
 
 const PlanDetailPage = () => {
@@ -52,7 +51,6 @@ const PlanDetailPage = () => {
       <Hightlight />
       <Detaillist />
       <InsurancePlan planName={plan.planName} premiums={plan.premiums} />
-      <PlanPurchase /> {/* Include PlanPurchase component */}
       <GeneralTerms />
       <Review />
       <Banner />
