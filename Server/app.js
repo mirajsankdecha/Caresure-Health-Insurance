@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const userRoutes = require("./routes/userRoutes");
 const planRoutes = require("./routes/planRoutes");
 const planDataRoutes = require("./routes/plandataRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const authRoutes = require("./routes/authRoutes");
 require("dotenv").config(); // Load environment variables from .env
 
 const app = express();
@@ -23,6 +25,9 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use("/users", userRoutes);
 app.use("/plans", planRoutes);
 app.use("/plandata", planDataRoutes);
+app.use("/admin", adminRoutes);
+app.use("/auth", authRoutes);
+
 // Start the server
 app.listen(port, () => {
   console.log("Server is running on port " + port);
