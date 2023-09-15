@@ -16,10 +16,17 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB using the MONGO_URI from .env
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Database connected Successfully");
+  })
+  .catch((error) => {
+    console.error("Error connecting to the database : ", error);
+  });
 
 // Routes
 app.use("/users", userRoutes);

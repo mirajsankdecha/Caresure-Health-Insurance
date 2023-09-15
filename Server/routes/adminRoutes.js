@@ -5,9 +5,10 @@ const adminValidator = require("../validators/adminValidators");
 const router = express.Router();
 
 router.post(
-  "/create",
-  adminValidator.createAdminValidator,
-  adminController.createAdmin
+  "/create", adminController.createAdmin
+);
+router.post(
+  "/login",adminController.loginAdmin
 );
 router.get("/getAll", adminController.getAllAdmins);
 router.get("/:id", adminController.getAdminById);

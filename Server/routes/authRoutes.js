@@ -22,9 +22,7 @@ router.post("/login", async (req, res) => {
 
     if (passwordMatch) {
       // Generate a JWT token for authentication
-      const token = jwt.sign({ username }, process.env.JWT_SECRET, {
-        expiresIn: "1h", // Set the token expiration time
-      });
+      const token = jwt.sign({ _id: admin._id }, process.env.TOKEN_SECRET);
 
       return res.status(200).json({ authenticated: true, token });
     } else {

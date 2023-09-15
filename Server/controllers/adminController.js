@@ -51,7 +51,25 @@ exports.updateAdminById = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+exports.loginAdmin = async (req, res) => {
+  try {
+   
+    const { email, password } = req.body;
 
+    const user = await Admin.findOne({ email });
+    if (!user)
+      return res.status(400).json({ message: "Invalid email or password." });
+
+    const validPassword = await bcrypt.compare(password, user.password);
+    if (!validPassword)
+      return res.status(400).json({ message: "Invalid email or password." });
+
+    const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+    res.header("x-auth-token", token).json({ token, user });
+  } catch (error) {
+    res.status(500).json({ message: "An error occurred." });
+  }
+};
 exports.deleteAdminById = async (req, res) => {
   try {
     const adminId = req.params.id;
