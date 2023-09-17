@@ -1,3 +1,4 @@
+// userRoutes.js
 const express = require("express");
 const userController = require("../controllers/userController");
 const userValidator = require("../validators/userValidator");
@@ -9,9 +10,18 @@ router.post(
   userValidator.createUserValidator,
   userController.createUser
 );
+router.post("/login", userController.loginUser);
+
 router.get("/getAll", userController.getAllUsers);
+
 router.get("/:id", userController.getUserById);
+
 router.delete("/:id", userController.deleteUserById);
-router.put("/:id", userController.updateUserById);
+
+router.put(
+  "/:id",
+  userValidator.updateUserValidator,
+  userController.updateUserById
+);
 
 module.exports = router;

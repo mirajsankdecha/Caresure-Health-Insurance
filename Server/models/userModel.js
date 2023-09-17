@@ -1,10 +1,11 @@
+// userModel.js
 const mongoose = require("mongoose");
-
+const bcrypt = require("bcrypt");
 const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true, // You can set this to true if you want unique emails
+    unique: true,
   },
   password: {
     type: String,
@@ -13,7 +14,6 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: false, // You can set this to true if you want unique usernames
   },
   firstName: {
     type: String,
@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema({
   },
   gender: {
     type: String,
-    enum: ["Male", "Female", "Other"],
     required: true,
   },
   address: {
@@ -44,6 +43,34 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  id: {
+    type: String, // Use String for the UUID
+    required: true,
+    unique: true,
+  },
 });
 
-module.exports = mongoose.model("User", userSchema);
+userSchema.pre("save", async function (next) {
+  try {
+    if (this.isModified("password")) {
+      const hashedPassword = await bcrypt.hash(this.password, 10);
+      this.password = hashedPassword;
+    }
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Method to compare a plain text password with the hashed password
+userSchema.methods.comparePassword = async function (password) {
+  try {
+    return await bcrypt.compare(password, this.password);
+  } catch (err) {
+    throw err;
+  }
+};
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;

@@ -12,15 +12,27 @@
     "country": "India"
   },
   {
-    "email": "satyam@gmail.com",
-    "password": "123",
-    "username": "satyamraval",
-    "firstName": "Satyam",
-    "lastName": "Raval",
-    "age": 20,
+    "email": "pavankorat@gmail.com",
+    "password": "123456",
+    "username": "pavankorat",
+    "firstName": "pavan",
+    "lastName": "korat",
+    "age": 19,
     "gender": "Male",
     "address": "KKV Hall",
     "city": "Rajkot",
+    "country": "India"
+  },
+  {
+    "email": "aayushpatel@gmail.com",
+    "password": "123",
+    "username": "aayushpatel",
+    "firstName": "aayush",
+    "lastName": "patel",
+    "age": 19,
+    "gender": "Male",
+    "address": "Madhapar Chokdi",
+    "city": "Kuvadva",
     "country": "India"
   }
 ]
