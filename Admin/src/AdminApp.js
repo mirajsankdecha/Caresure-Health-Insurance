@@ -18,6 +18,10 @@ import Settings from "./components/Navbar/Settings";
 import Notifications from "./components/Navbar/Notifications";
 import Messages from "./components/Navbar/Messages";
 
+const PrivateRoute = ({ authenticated, path, element }) => {
+  return authenticated ? element : <Navigate to="/signin" replace />;
+};
+
 const AdminApp = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -38,16 +42,7 @@ const AdminApp = () => {
           <AdminNavbar toggleSidebar={toggleSidebar} />
           <div className="container mx-auto p-4">
             <Routes>
-              <Route
-                path="/"
-                element={
-                  authenticated ? (
-                    <Navigate to="/dashboard" />
-                  ) : (
-                    <Navigate to="/signin" replace />
-                  )
-                }
-              />
+              <Route path="/" element={<Navigate to="/dashboard" />} />
               <Route
                 path="/signin"
                 element={<SignIn setAuthenticated={setAuthenticated} />}
@@ -55,21 +50,84 @@ const AdminApp = () => {
               <Route
                 path="/dashboard"
                 element={
-                  authenticated ? (
-                    <Dashboard />
-                  ) : (
-                    <Navigate to="/signin" replace />
-                  )
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<Dashboard />}
+                  />
                 }
               />
-              <Route path="/manage-plans" element={<ManagePlans />} />
-              <Route path="/manage-claims" element={<ManageClaims />} />
-              <Route path="/transactions" element={<Transactions />} />
-              <Route path="/user-list" element={<UsersList />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/notifications" element={<Notifications />} />
-              <Route path="/messages" element={<Messages />} />
+              <Route
+                path="/manage-plans"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<ManagePlans />}
+                  />
+                }
+              />
+              <Route
+                path="/manage-claims"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<ManageClaims />}
+                  />
+                }
+              />
+              <Route
+                path="/transactions"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<Transactions />}
+                  />
+                }
+              />
+              <Route
+                path="/user-list"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<UsersList />}
+                  />
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<Profile />}
+                  />
+                }
+              />
+              <Route
+                path="/settings"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<Settings />}
+                  />
+                }
+              />
+              <Route
+                path="/notifications"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<Notifications />}
+                  />
+                }
+              />
+              <Route
+                path="/messages"
+                element={
+                  <PrivateRoute
+                    authenticated={authenticated}
+                    element={<Messages />}
+                  />
+                }
+              />
             </Routes>
           </div>
         </div>

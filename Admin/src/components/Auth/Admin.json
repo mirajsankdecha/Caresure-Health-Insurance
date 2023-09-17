@@ -26,47 +26,5 @@
     "address": "Rajkot, Gujarat, India",
     "role": "admin",
     "active": true
-  },
-  {
-    "firstname": "Michael",
-    "lastname": "Johnson",
-    "username": "admin789",
-    "password": "hashed_password_3",
-    "email": "admin3@example.com",
-    "age": 35,
-    "gender": "Male",
-    "DOB": "1988-09-10",
-    "phonenumber": "+5555555555",
-    "address": "789 Oak St, Village, Country",
-    "role": "admin",
-    "active": true
-  },
-  {
-    "firstname": "Emily",
-    "lastname": "Davis",
-    "username": "admin101",
-    "password": "hashed_password_4",
-    "email": "admin4@example.com",
-    "age": 26,
-    "gender": "Female",
-    "DOB": "1997-03-05",
-    "phonenumber": "+4444444444",
-    "address": "101 Maple St, Suburb, Country",
-    "role": "admin",
-    "active": true
-  },
-  {
-    "firstname": "David",
-    "lastname": "Wilson",
-    "username": "admin202",
-    "password": "hashed_password_5",
-    "email": "admin5@example.com",
-    "age": 33,
-    "gender": "Male",
-    "DOB": "1990-11-28",
-    "phonenumber": "+9999999999",
-    "address": "202 Pine St, Hamlet, Country",
-    "role": "admin",
-    "active": true
   }
 ]
