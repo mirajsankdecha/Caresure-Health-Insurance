@@ -2,7 +2,7 @@ import React from "react";
 import { RiCustomerService2Line } from "react-icons/ri";
 import logo from "../../image/logo.png";
 import { Link } from "react-router-dom";
-import { useAuth } from "../Plans/Auth/Auth"; // Import the useAuth hook
+import { useAuth } from "../Plans/Auth/auth"; // Import the useAuth hook
 
 const Navbar = () => {
   const { user, logout } = useAuth(); // Destructure user and logout from useAuth hook

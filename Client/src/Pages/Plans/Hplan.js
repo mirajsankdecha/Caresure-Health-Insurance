@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios"; // Import Axios
-import { useAuth } from "./Auth/Auth"; // Import useAuth from your custom hook
+import { useAuth } from "./Auth/auth"; // Import useAuth from your custom hook
 
 const Hplan = () => {
   const [selectedCategory, setSelectedCategory] = useState("All categories");

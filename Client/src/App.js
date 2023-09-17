@@ -11,7 +11,7 @@ import Claims from "./Pages/Claims/Claims";
 import About from "./Pages/About/About";
 import Footer from "./Pages/Footer/Footer";
 import Error from "./Pages/Error/Error";
-import { AuthProvider } from "./Pages/Plans/Auth/Auth";
+import { AuthProvider } from "./Pages/Plans/Auth/auth";
 import Logout from "./Pages/Plans/Auth/Logout";
 import RegisterForm from "./Pages/Plans/Auth/RegisterForm";
 import Login from "./Pages/Plans/Auth/Login";

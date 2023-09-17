@@ -1,57 +1,47 @@
-// Auth.js
-
 import React, { createContext, useState, useContext } from "react";
+import axios from "axios";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(() => {
-    // Initialize user state from localStorage (if available)
-    const storedUser = localStorage.getItem("user");
-    return storedUser ? JSON.parse(storedUser) : null;
-  });
+  const [user, setUser] = useState(null);
 
-  const login = (email, password) => {
-    // Implement your login logic here
+  const login = async (username, password) => {
+    try {
+      const response = await axios.post("http://localhost:5000/auth/login", {
+        username,
+        password,
+      });
 
-    // Assuming successful login, set user data
-    const loggedInUser = {
-      id: 1, // You can assign a unique ID here, in real apps, this will come from the server.
-      email,
-      username: "username_placeholder", // Replace with actual username if available
-    };
-    setUser(loggedInUser);
-
-    // Save user data to LocalStorage
-    localStorage.setItem("user", JSON.stringify(loggedInUser));
-  };
-
-  const register = (email, password, username) => {
-    // Assuming successful registration, set user data
-    const newUser = {
-      email,
-      password,
-      username,
-    };
-    setUser(newUser);
-
-    // Save user data to LocalStorage
-    localStorage.setItem("user", JSON.stringify(newUser));
+      if (response.data.token) {
+        // Set the user and token in state
+        setUser({
+          username,
+          token: response.data.token,
+        });
+        // Store the token in localStorage for persistence
+        localStorage.setItem("token", response.data.token);
+      } else {
+        throw new Error("Invalid username or password");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      throw error;
+    }
   };
 
   const logout = () => {
+    // Remove user and token from state
     setUser(null);
-
-    // Remove user data from LocalStorage on logout
-    localStorage.removeItem("user");
+    // Remove the token from localStorage
+    localStorage.removeItem("token");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
-  );
-};
+  );};
 
 export const useAuth = () => {
   return useContext(AuthContext);

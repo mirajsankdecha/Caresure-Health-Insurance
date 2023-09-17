@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useAuth } from "./Auth/Auth";
+import { useAuth } from "./Auth/auth";
 import Header from "./Header";
 import Stat from "./Stat";
 import Infocard from "./Infocard";
