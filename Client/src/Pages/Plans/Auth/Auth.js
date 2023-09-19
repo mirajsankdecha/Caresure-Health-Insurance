@@ -8,10 +8,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post("http://localhost:5000/auth/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5000/auth/user/login",
+        {
+          username,
+          password,
+        }
+      );
 
       if (response.data.token) {
         // Set the user and token in state
