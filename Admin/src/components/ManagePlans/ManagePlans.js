@@ -1,5 +1,4 @@
-// ManagePlans.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import PlanForm from "./PlanForm";
 
@@ -9,6 +8,19 @@ const ManagePlans = () => {
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPlans, setFilteredPlans] = useState([]);
+
+  const filterPlans = useCallback(() => {
+    const filtered = plans.filter((plan) => {
+      const title = plan.title || "";
+      const description = plan.description || "";
+
+      return (
+        title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    });
+    setFilteredPlans(filtered);
+  }, [searchTerm, plans]);
 
   useEffect(() => {
     axios
@@ -22,21 +34,8 @@ const ManagePlans = () => {
   }, []);
 
   useEffect(() => {
-    filterPlans();
-  }, [searchTerm, plans]);
-
-  const filterPlans = () => {
-  const filtered = plans.filter((plan) => {
-    const title = plan.title || ""; // Use an empty string if title is undefined
-    const description = plan.description || ""; // Use an empty string if description is undefined
-
-    return (
-      title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  });
-  setFilteredPlans(filtered);
-};
+    filterPlans(); // Call it immediately to filter plans on component mount
+  }, [searchTerm, plans, filterPlans]);
 
   const handleAddClick = () => {
     setIsAddMode(true);
