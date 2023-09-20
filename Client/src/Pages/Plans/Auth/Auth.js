@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
           password,
         }
       );
+      
 
       if (response.data.token) {
         // Set the user and token in state
