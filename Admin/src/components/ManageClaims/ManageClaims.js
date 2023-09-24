@@ -10,7 +10,7 @@ const ManageClaims = () => {
       amountPaid: 500,
       validity: 12,
       status: "Pending",
-      coverageAmount: " $1,000,000",
+      coverageAmount: " ₹1,000,000",
       userId: "123",
     },
     {
@@ -21,7 +21,7 @@ const ManageClaims = () => {
       amountPaid: 300,
       validity: 6,
       status: "Pending",
-      coverageAmount: " $500,000",
+      coverageAmount: " ₹500,000",
       userId: "456",
     },
     // Add more dummy claims here
@@ -68,7 +68,7 @@ const ManageClaims = () => {
       userName: "John Doe",
       age: 30,
       bloodGroup: "A+",
-      planAmount: "$1,000,000",
+      planAmount: "₹1,000,000",
       validity: 12,
       otherPlans: ["Basic Plan", "Additional Health Rider"],
       address: "123 Main St, City",
@@ -102,7 +102,7 @@ const ManageClaims = () => {
                 <td className="border px-4 py-2">{claim.planName}</td>
                 <td className="border px-4 py-2">{claim.planId}</td>
                 <td className="border px-4 py-2">{claim.transactionId}</td>
-                <td className="border px-4 py-2">${claim.amountPaid}</td>
+                <td className="border px-4 py-2">₹{claim.amountPaid}</td>
                 <td className="border px-4 py-2">{claim.validity} months</td>
                 <td className="border px-4 py-2">{claim.coverageAmount}</td>
                 <td className="border px-4 py-2">
@@ -154,7 +154,7 @@ const ManageClaims = () => {
           <p>Plan Name: {selectedClaim.planName}</p>
           <p>Plan ID: {selectedClaim.planId}</p>
           <p>Transaction ID: {selectedClaim.transactionId}</p>
-          <p>Amount Paid: ${selectedClaim.amountPaid}</p>
+          <p>Amount Paid: ₹{selectedClaim.amountPaid}</p>
           <p>Validity: {selectedClaim.validity} months</p>
           <p>Coverage Amount: {selectedClaim.coverageAmount}</p>
           <p>Status: {selectedClaim.status}</p>
