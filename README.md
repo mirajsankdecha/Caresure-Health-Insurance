@@ -26,16 +26,16 @@
 ---
 
 
-![Javascript](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F)
-![React](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)
-![Nodejs](https://img.shields.io/badge/Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-092749?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4&labelColor=000000)
+![Javascript](https://img.shields.io/badge/Javascript-F0DB4F?style=for-the-badge&labelColor=black&logo=javascript&logoColor=F0DB4F)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![React](https://img.shields.io/badge/-React-61DBFB?style=for-the-badge&labelColor=black&logo=react&logoColor=61DBFB)
+![Nodejs](https://img.shields.io/badge/Nodejs-3C873A?style=for-the-badge&labelColor=black&logo=node.js&logoColor=3C873A)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
 ![VSCode](https://img.shields.io/badge/Visual_Studio-0078d7?style=for-the-badge&logo=visual%20studio&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 <br>
 
@@ -45,7 +45,7 @@
 
 ## :pencil: Introduction
 
-"Caresure Health Insurance" is a cutting-edge project developed by Miraj Sankdecha during his academic tenure at Atmiya University-Rajkot. This project showcases the power of the MERN stack, encompassing MongoDB, Express, React, and Node.js, to create an innovative health insurance platform. This comprehensive solution caters to both clients seeking health insurance coverage and administrators responsible for policy management and claims processing.
+**"Caresure Health Insurance"** is a cutting-edge project developed by **Miraj Sankdecha** during his academic tenure at Atmiya University-Rajkot. This project showcases the power of the MERN stack, encompassing **MongoDB, Express, React, and Node.js**, to create an innovative health insurance platform. This comprehensive solution caters to both clients seeking health insurance coverage and administrators responsible for policy management and claims processing.
 
 ## :mag: Project Overview
 
@@ -89,6 +89,9 @@ Miraj Sankdecha, a dedicated BCA student, embarked on the development of Caresur
 - **LinkedIn:** https://www.linkedin.com/in/mirajsankdecha/
 - **X:** https://x.com/mirajsankdecha
 
+## :open_book: Documentation
+
+For in-depth details, diagrams, and more information about the project, please refer to the project documentation: [Project Documentation](https://drive.google.com/file/d/1E0KLef9Bt3so6yYojQrHa3scCIVg3G-h/view?usp=sharing).
 
 ## :rocket: Features
 
@@ -168,6 +171,10 @@ This project has been a profound learning experience, and the contributions of a
 
 In conclusion, "Caresure Health Insurance" is not only a testament to Miraj Sankdecha's dedication but also a powerful solution for managing health insurance policies, ensuring a seamless and secure experience for clients and administrators alike.
 
+## :man_astronaut: Show your support
+
+Give a ⭐️ if this project helped you!
+
 ## :page_facing_up: License
 
 MIT/Massachusetts Institute of Technology(here [LICENSE](https://github.com/mirajsankdecha/Caresure-Health-Insurance/blob/development/LICENSE))
@@ -175,7 +182,3 @@ MIT/Massachusetts Institute of Technology(here [LICENSE](https://github.com/mira
 The Caresure Health Insurance code is licensed by Massachusetts Institute of Technology.
 
 By contributing to Caresure Health Insurance, you will be agreeing that your contributions will be licensed under its Massachusetts Institute of Technology(MIT).
-
-## :man_astronaut: Show your support
-
-Give a ⭐️ if this project helped you!
