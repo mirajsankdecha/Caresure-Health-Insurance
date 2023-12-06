@@ -37,7 +37,19 @@ const RegisterForm = () => {
       })
       .catch((error) => {
         console.error("Error creating user: ", error);
-        window.alert("Error registering user. Please try again.");
+
+        let errorMessage = "Go to Log In page and Enter your credentials";
+
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.error
+        ) {
+          // If the server sends an error message, use it
+          errorMessage = error.response.data.error;
+        }
+
+        window.alert(errorMessage);
       });
   };
 
